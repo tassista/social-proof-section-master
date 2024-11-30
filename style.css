@@ -27,9 +27,18 @@ body{
     background-repeat: no-repeat, no-repeat;
     background-position: top left, bottom right;
     }
+    .left{
+        margin-right: auto;
+    }
+    .midle{
+        margin-inline: auto;
+    }
+    .right{
+        margin-left: auto;
+    }
 .wrapper{
     width: 87%;
-    max-width: 1200px;
+    max-width: 1150px;
     margin: 80px auto;
     display: grid;
     gap: 1.7rem;
@@ -50,11 +59,14 @@ body{
     margin-bottom: 1.5rem;
 }
 .rate{
+    max-width: 480px;
     background-color: var(--light-grayish-magenta);
     border-radius: .5rem;
     margin-block: 1.1rem;
     padding: 1.1rem;
-    text-align: center;  
+    text-align: center; 
+    display: flex;
+    flex-direction: column; 
 }
 .rate__stars > * + * {
     margin-left: 4px;
@@ -65,7 +77,13 @@ body{
     font-weight: 700;
     color: var(--very-dark-magenta);
 }
+
+.reviews{
+    display: flex;
+    flex-direction: column;
+}
 .review{
+    max-width: 360px;
     background-color: var(--very-dark-magenta);
     color: var(--white);
     border-radius: .5rem;
@@ -94,4 +112,52 @@ body{
     font-size: 1.075rem;
     line-height: 1.4;
     font-weight: 500;
+}
+@media screen and (min-width: 700px) {
+    .description{
+        width: 400px;
+    }
+}
+@media screen and (min-width: 1250px) {
+    .wrapper{
+        margin: 10rem auto;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+    .description{
+        width: unset;
+    }
+    .reviews{
+        height: 120%;
+        flex-direction: row;
+        grid-column: span 2;
+    }
+    .review.left{
+        margin-bottom: auto;
+    }
+    .review.midle{
+        margin-block: auto;
+    }
+    .review.right{
+        margin-top: auto;
+    }
+    .description{
+        text-align: start;
+        padding-right: 10rem;
+    }
+    .description__title{
+        font-size: 4rem;
+    }
+    .rate{
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 0;
+    }
+    .rate__stars{
+        margin-inline: 2rem;
+    }
+    .rate__text{
+        margin-top: 0;
+    }
 }
